@@ -37,6 +37,8 @@ const reducer = (state = initialState, action) => {
         },
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
       };
+    default:
+          return state;
   }
 };
 
