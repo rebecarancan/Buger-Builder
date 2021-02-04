@@ -27,12 +27,12 @@ class BurgerBuilder extends Component {
   updatePurchaseState (ingredients) {
     const sum = Object.keys(ingredients)
       .map(igKey => {
-        return ingredients[igKey]
+        return ingredients[igKey];
       })
       .reduce((sum, el) => {
         return sum + el;
       }, 0);
-      return sum > 0;
+    return sum > 0;
   }
 
   purchaseHandler = () => {
@@ -52,13 +52,13 @@ class BurgerBuilder extends Component {
     const disabledInfo = {
       ...this.props.ings
     };
-    for ( let key in disabledInfo ) {
+    for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
     let orderSummary = null;
     let burger = this.props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 
-    if ( this.props.ings ) {
+    if (this.props.ings) {
       burger = (
         <Aux>
           <Burger ingredients={this.props.ings} />
@@ -70,7 +70,7 @@ class BurgerBuilder extends Component {
             ordered={this.purchaseHandler}
             price={this.props.price} />
         </Aux>
-      );
+    );
       orderSummary = <OrderSummary
         ingredients={this.props.ings}
         price={this.props.price}
@@ -86,7 +86,7 @@ class BurgerBuilder extends Component {
         {burger}
       </Aux>
     );
-}
+  }
 }
 
 const mapStateToProps = state => {
